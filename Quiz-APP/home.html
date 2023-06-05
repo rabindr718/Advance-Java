@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Online Exam</title>
+        <link rel="icon" href="1.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .head nav{
+                position: absolute;
+                right: 2rem;
+                top: -0.3rem
+            }
+            body{
+                background-color: #f4fafa;
+                overflow-x:hidden;
+            }
+            #checkit{
+                margin-left: -1rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="head">
+            <h2>Online Exam</h2>
+            <nav class="navbar">
+                <a  style="border-bottom:3px solid rgb(14, 13, 13)" id="navkey">Home</a>
+                <a  class="feat" id="navkey" onclick="pressedNavKey()">Features</a>
+                <a  id="navkey" onclick="pressedNavKey()">Test</a>
+                <a  id="navkey" onclick="pressedNavKey()">AboutUs</a>
+                <a href="login.jsp" class="feat">Login</a>
+            </nav>
+        </div>
+        <!-- <div class="blur"> -->
+
+        <!-- </div> -->
+        <div class="header">
+<!--            <img src="https://www.kindpng.com/picc/m/242-2423295_online-exam-system-call-centre-cartoon-gif-hd.png"
+                 width="60%" height="500px" class="fix">-->
+<img src="https://www.fx-markets.com/sites/fxweek/files/styles/landscape_750_463/public/2018-05/study-education-test---Getty---web.jpg?itok=YDR_l9bN"
+                 width="60%" height="500px" class="fix">
+            
+            <span class="mcq">MCQ</span>
+            <h2>Your Online Testing Partner</h2>
+            <span class="about">Online exam system for all your testing needs for <br> <b>assessment, recruitment,
+                    selection and certifications.</b></span>
+            <button type="button" id="main" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                SIGN UP
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel">Create Account</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="create">
+                                <form action="signUP" method="post" class="sign" onsubmit=" return validate()" name="signin">
+                                    <div class="form-input">
+                                        <label for="fname">First Name:</label>
+                                        <input type="text" id="fname" class="form-control" name="fname"
+                                               placeholder="Enter your first name">
+                                        <p id="ferror" style="color:red"></p>
+                                        <!-- </div> -->
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="lname">Last Name:</label>
+                                        <input type="text" placeholder="Enter your Last name" class="form-control"
+                                               name="lname" id="lname">
+                                        <!-- </div> -->
+                                        <p id="lerror" style="color:red"></p>
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="email">Email Id: </label>
+                                        <!-- <div class="col-sm-10"> -->
+                                        <input type="text" placeholder="Enter your email address" class="form-control"
+                                               name="email" id="email">
+                                        <!-- </div> -->
+                                        <p id="Eerror" style="color:red"></p>
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="pswd">Password: </label>
+                                        <input type="password" placeholder="Enter your password" class="form-control"
+                                               name="pswd" id="pswd">
+                                        <p id="Perror" style="color:red"></p>
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="cpswd">Confirm Password: </label>
+                                        <input type="password" placeholder="Enter your password again" class="form-control"
+                                               name="cpswd" id="cpswd">
+                                        <p id="CPerror" style="color:red"></p>
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="gen">Select Gender: </label>
+                                        <input type="radio" name="gen" value="Male"> Male
+                                        <input type="radio" name="gen" value="Female"> Female
+                                        <input type="radio" name="gen" value="others"> Others
+                                        <p id="Generror" style="color:red"></p>
+                                    </div>
+                                    <div class="form-input">
+                                        Choose Your Degree: <select name="branch" id="BranchDetails">
+                                            <option value="BE">Bachelor Of Engineering</option>
+                                            <option value="BTech">Bachelor Of Technology</option>
+                                            <option value="ME">Master Of Engineering</option>
+                                        </select>
+                                        <p id="CPerror" style="color:red"></p>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkit" required>
+                                        <label class="form-check-label" for="checkit">I accept <a href="#"
+                                                                                                  style="text-decoration: none;">
+                                                terms of use and privacy policy</a>.
+                                        </label>
+                                    </div><br>
+                                    <div class="modal-footer">
+                                        <input type="button" onclick="reset()" class="btn btn-secondary"
+                                               data-bs-dismiss="modal" value="Cancel">
+                                        <input type="submit" class="btn btn-primary" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+        <div class="feature">
+            <a href="#">Adaptive Mode</a>
+            <a href="#">Coding Tests</a>
+            <a href="#">Aptitude Tests</a>
+            <a href="#">Seamless API Integration</a>
+        </div>
+        <br><br>
+        <div class="types">
+            <h3 align="center">Online Assessment Types</h3><br><br>
+            <div class="typesin">
+                <div class="viewTypes">
+                    <img src="https://www.eklavvya.in/images-eklavvya/testing.png" width="100px" height="70px">
+                    <span>Technical Test</span>
+                </div>
+                <div class="viewTypes">
+                    <img src="https://www.eklavvya.in/images-eklavvya/web-coding-1.png" width="100px" height="70px">
+                    <span>Coding Test</span>
+                </div>
+                <div class="viewTypes">
+                    <img src="https://www.eklavvya.in/images-eklavvya/exam-1.png" width="100px" height="70px">
+                    <span>Aptitude Test</span>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="brief1">
+            <div class="brief">
+                <h3>An Online Examination System For Secure And Seamless Online Exams</h3><br>
+                <span>A Robust Online Testing Platform For Conducting Remote Online Examinations</span>
+            </div>
+            <img src="https://www.eklavvya.in/images-eklavvya/we-made.png" width="200px" height="200px">
+        </div>
+        <br><br>
+        <div class="footer">
+            <div class="element"><img
+                    src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png"
+                    width="50px" height="50px"><a href="#">@OnlineMCQ</a>
+                <div class="element">
+                    <i class="fa fa-google" aria-hidden="true" id="logoGoogle"></i> &nbsp;<a href="#">Get
+                        Email Updates</a>
+                </div>
+            </div>
+            <hr style="color: white;">
+            <div class="lstfoot">
+                <div class="lstfoot1"><a href="#">Copyright©2022 OnlineMCQ</a></div>
+                <div class="lstfoot2"><a href="#">Privacy Policy</a></div>
+                <div class="lstfoot3"><a href="#">Terms of Use</a></div>
+            </div>
+        </div>
+        <script>
+            var pressNavKey = document.getElementById("navkey");
+            function pressedNavKey() {
+                alert("Kindly Log in Yourself first");
+                window.location.href = "login.jsp";
+            }
+            function validate() {
+                var first_name = document.forms["signin"]["fname"].value;
+                var last_name = document.forms["signin"]["lname"].value;
+                var email = document.forms["signin"]["email"].value;
+                var pass = document.forms["signin"]["pswd"].value;
+                var cpass = document.forms["signin"]["cpswd"].value;
+                var inputfirst = document.getElementById("fname");
+                var inputlast = document.getElementById("lname");
+                var inputaddress = document.getElementById("address");
+                var inputemail = document.getElementById("email");
+                var inputpassword = document.getElementById("pswd");
+                var inputCpassword = document.getElementById("cpswd");
+                var showFirst = document.getElementById("ferror");
+                var showLast = document.getElementById("lerror");
+                var showEmail = document.getElementById("Eerror");
+                var showpass = document.getElementById("Perror");
+                var showCpass = document.getElementById("CPerror");
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var inputcontrol = document.getElementsByClassName("form-control");
+                if (first_name == "") {
+                    showFirst.innerHTML = "Enter your First Name";
+                    inputfirst.style.borderColor = "red";
+                    return false;
+                } else if (last_name == "") {
+                    showLast.innerHTML = "Enter your Last Name";
+                    inputlast.style.borderColor = "red";
+                    return false;
+                } else if (email == "" || !email.match(mailformat)) {
+                    showEmail.innerHTML = "Enter valid Email address";
+                    inputemail.style.borderColor = "red";
+                    return false;
+                } else if (pass == "" || pass.length < 6) {
+                    showpass.innerHTML = "Password must be at least 6 characters long";
+                    inputpassword.style.borderColor = "red";
+                    return false;
+                } else if (cpass == "" || cpass != pass) {
+                    showCpass.innerHTML = "Password doesnot match";
+                    inputCpassword.style.borderColor = "red";
+                    return false;
+                }
+                alert("Are you sure all the entered details are correct ?")
+            }
+            function reset() {
+                inputcontrol.innerHTML = "";
+            }
+            // $(document).ready(function () {
+            //     // $(".blur").css(display, "none");
+            //     $(".feat").click(function () {
+            //         $(".featureItem").fadeToggle(500);
+            //     })
+            // })
+
+            function validation() {
+                var uname = document.forms["logi"]["uname"].value;
+                var pass = document.forms["logi"]["pass"].value;
+                if (uname == "") {
+                    document.getElementById("uerror").style.color = "red";
+                    document.getElementById("uerror").innerHTML = "Enter Username";
+                    return false;
+                } else if (pass == "") {
+                    document.getElementById("perror").style.color = "red";
+                    document.getElementById("perror").innerHTML = "Enter Password";
+                    return false;
+                }
+            }
+
+        </script>
+    </body>
+
+</html>
